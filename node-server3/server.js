@@ -1,13 +1,16 @@
-
 var http = require("http");
 
-function onRequest(request,response){
-  response.writeHead(200,{"Content-Type":"text/plain"})
-  response.write("hello world")
-  response.send()
+function start() {
+  function onRequest(request, response) {
+    response.writeHead(200, {
+      "Content-Type": "text/plain"
+    });
+    response.write("Hello World");
+    response.end();
+  }
+
+  http.createServer(onRequest).listen(3333)
+
 }
 
-http.createServer(onRequest).listen(3333)
-
-
-console.log("localhost:3333")
+exports.start = start;
