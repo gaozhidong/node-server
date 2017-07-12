@@ -1,3 +1,5 @@
+var querystring = require("querystring");
+
 function start(response, postData) {
 
     var body = '<html>' +
@@ -24,7 +26,8 @@ function upload(response, postData) {
     response.writeHead(200, {
         "Content-Type": "text/plain"
     });
-    response.write("You've sent: " + postData);
+    response.write("You've sent the text: " +
+        querystring.parse(postData).text);
     response.end();
 }
 
