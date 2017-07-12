@@ -1,4 +1,4 @@
-function start(response) {
+function start(response, postData) {
 
     var body = '<html>' +
         '<head>' +
@@ -20,11 +20,11 @@ function start(response) {
     response.end();
 }
 
-function upload(response) {
+function upload(response, postData) {
     response.writeHead(200, {
         "Content-Type": "text/plain"
     });
-    response.write("Hello Upload");
+    response.write("You've sent: " + postData);
     response.end();
 }
 
